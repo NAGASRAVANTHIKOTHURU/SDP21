@@ -1,0 +1,57 @@
+.feedbackheight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.provide-feedback-content {
+  width: 450px;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+}
+
+.feedback-table {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.feedback-txtbox,
+.suggestions-box {
+  height: 35px;
+  width: calc(100% - 20px);
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.star-icon {
+  cursor: pointer;
+  color: #E9EEF3;
+  font-size: 24px;
+  margin-right: 5px;
+}
+
+.star-icon.filled {
+  color: rgb(249, 249, 11);
+}
+
+.feedback-button {
+  height: 35px;
+  width: 100%;
+  background: rgb(31, 74, 153);
+  color: white;
+  cursor: pointer;
+  border: 1px solid silver;
+  border-radius: 3px;
+  transition: transform 0.3s ease;
+}
+
+.feedback-button:hover {
+  transform: scale(1.05);
+}

@@ -1,0 +1,61 @@
+/* ContactSupport.css */
+
+.full-height {
+    height: 100vh; /* Using viewport height for full-screen height */
+}
+
+.contact-support-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px; /* Add padding for better spacing */
+    
+}
+
+.cpcontent {
+    max-width: 600px;
+    background-color: #f8f8f8; /* Light background color */
+    border-radius: 10px; /* Add border radius for a rounded appearance */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+}
+
+h3 {
+    color: #333; /* Dark text color for headings */
+}
+
+p {
+    color: #555; /* Slightly darker text color for paragraphs */
+}
+
+.additional-info {
+    margin-top: 20px;
+}
+
+.additional-info h4 {
+    margin-bottom: 10px;
+    color: #555; /* Darker text color for subheadings */
+}
+
+.additional-info ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.additional-info li {
+    margin-bottom: 8px;
+    color: #666; /* Slightly darker text color for list items */
+}
+
+/* Add hover effect for email link */
+.additional-info a:hover {
+    text-decoration: underline;
+}
+
+/* Add some animation for a subtle hover effect */
+.additional-info a {
+    color: #007bff;
+    transition: color 0.3s ease;
+}

@@ -1,0 +1,251 @@
+/* hourlyforecast.css */
+
+.hourly-forecast-wrapper {
+    margin: 20px;
+}
+
+.hourly-forecast-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.hourly-forecast-header {
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.hourly-forecast-content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.hourly-forecast-content label {
+    margin-right: 10px;
+}
+
+.hourly-forecast-content input {
+    margin-right: 10px;
+}
+
+.hourly-forecast-content button {
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #BAC6DA;
+    color: black;
+    border: none;
+    border-radius: 3px;
+}
+
+.hourly-forecast-content button:hover {
+    background-color: #BAC6DA;
+}
+
+.hourly-forecast-item {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.hourly-forecast-item {
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hourly-forecast-item:hover {
+    background-color: #f0f0f0;
+}
+
+.weatherpopup {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* dailyforecast.css */
+
+.daily-forecast-wrapper {
+    margin: 20px;
+}
+
+.daily-forecast-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.daily-forecast-header {
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.daily-forecast-content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.daily-forecast-content label {
+    margin-right: 10px;
+}
+
+.daily-forecast-content input {
+    margin-right: 10px;
+}
+
+.daily-forecast-content button {
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #BAC6DA;
+    color: black;
+    border: none;
+    border-radius: 3px;
+}
+
+.daily-forecast-content button:hover {
+    background-color: #BAC6DA;
+}
+
+.daily-forecast-item {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.daily-forecast-item {
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.daily-forecast-item:hover {
+    background-color: #f0f0f0;
+}
+
+.weatherpopup {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* weeklyoutlook.css */
+
+.weekly-outlook-wrapper {
+    margin: 20px;
+}
+
+.weekly-outlook-container {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.weekly-outlook-header {
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+.weekly-outlook-content {
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.weekly-outlook-content label {
+    margin-right: 10px;
+}
+
+.weekly-outlook-content input {
+    margin-right: 10px;
+}
+
+.weekly-outlook-content button {
+    cursor: pointer;
+    padding: 5px 10px;
+    background-color: #BAC6DA;
+    color: black;
+    border: none;
+    border-radius: 3px;
+}
+
+.weekly-outlook-content button:hover {
+    background-color: #BAC6DA;
+}
+
+.weekly-outlook-item {
+    margin-top: 20px;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+.horizontal-scroll {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+.weekly-outlook-item {
+    margin-right: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.weekly-outlook-item:hover {
+    background-color: #f0f0f0;
+}
+
+.weather-popup {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

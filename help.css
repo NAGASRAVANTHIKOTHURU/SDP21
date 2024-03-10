@@ -1,0 +1,60 @@
+.popup-container { 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 80%; 
+    max-width: 600px; /* Adjust as needed */ 
+    background-color: #f8f8f8;
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+    border: 1px solid #ccc;
+} 
+ 
+.popup-content { 
+    text-align: center; 
+    background-color: #f8f8f8;
+} 
+.faq-section h4 { 
+    text-decoration: underline; 
+} 
+/* Help.css */ 
+ 
+.popup-container { 
+    position: fixed; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    width: 80%; 
+    max-width: 600px; /* Adjust as needed */ 
+    background-color: #f8f8f8;
+    border-radius: 10px; 
+    padding: 20px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
+} 
+ 
+.popup-content { 
+    text-align: left; /* Align text to the left */ 
+} 
+ 
+.faq-section h4 { 
+    text-decoration: underline; 
+    margin-bottom: 10px; /* Add some space below the heading */ 
+} 
+ 
+.faq-section ul { 
+    list-style: none; /* Remove bullets */ 
+    padding: 0; 
+} 
+ 
+.faq-section li { 
+    margin-bottom: 15px; /* Add space between each question */ 
+} 
+ 
+.faq-section strong { 
+    display: block; /* Make the question text bold and on a new line */ 
+    margin-bottom: 5px; /* Add space below each question */ 
+} 
+ 
+/* Rest of your existing styles... */
