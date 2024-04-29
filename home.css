@@ -7,11 +7,12 @@
     font-weight: bold;
     font-size: 12pt;
 }
-
-.content{
+.content {
     width: 100%;
     height: calc(100% - 50px);
-    background: white;
+    background-image: url('images/weath.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .footer{

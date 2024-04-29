@@ -1,18 +1,20 @@
-/* hourlyforecast.css */
+ /* hourlyforecast.css */
 
 .hourly-forecast-wrapper {
-    margin: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
 }
 
 .hourly-forecast-container {
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .hourly-forecast-header {
     color: #333;
+    font-size: 24px;
     margin-bottom: 20px;
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
@@ -20,83 +22,91 @@
 
 .hourly-forecast-content {
     font-size: 16px;
-    line-height: 1.5;
     color: #555;
+    margin-bottom: 20px;
 }
 
 .hourly-forecast-content label {
     margin-right: 10px;
+    font-weight: bold;
 }
 
 .hourly-forecast-content input {
-    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px; /* Add margin to create space between input and button */
 }
 
 .hourly-forecast-content button {
     cursor: pointer;
-    padding: 5px 10px;
-    background-color: #BAC6DA;
-    color: black;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Add margin to create space between input and button */
 }
 
+
 .hourly-forecast-content button:hover {
-    background-color: #BAC6DA;
+    background-color: #45a049;
 }
 
 .hourly-forecast-item {
     margin-top: 20px;
     border-top: 1px solid #ccc;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .horizontal-scroll {
-    display: flex;
     overflow-x: auto;
     white-space: nowrap;
 }
 
 .hourly-forecast-item {
     margin-right: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .hourly-forecast-item:hover {
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
 }
 
-.weatherpopup {
+.weather-popup {
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 15px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 10px);
     z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* dailyforecast.css */
 
 .daily-forecast-wrapper {
-    margin: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
 }
 
 .daily-forecast-container {
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .daily-forecast-header {
     color: #333;
+    font-size: 24px;
     margin-bottom: 20px;
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
@@ -104,83 +114,91 @@
 
 .daily-forecast-content {
     font-size: 16px;
-    line-height: 1.5;
     color: #555;
+    margin-bottom: 20px;
 }
 
 .daily-forecast-content label {
     margin-right: 10px;
+    font-weight: bold;
 }
 
 .daily-forecast-content input {
-    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px; /* Add margin to create space between input and button */
 }
 
 .daily-forecast-content button {
     cursor: pointer;
-    padding: 5px 10px;
-    background-color: #BAC6DA;
-    color: black;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Add margin to create space between input and button */
 }
 
 .daily-forecast-content button:hover {
-    background-color: #BAC6DA;
+    background-color: #45a049;
 }
 
 .daily-forecast-item {
     margin-top: 20px;
     border-top: 1px solid #ccc;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .horizontal-scroll {
-    display: flex;
     overflow-x: auto;
     white-space: nowrap;
 }
 
 .daily-forecast-item {
     margin-right: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .daily-forecast-item:hover {
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
 }
 
-.weatherpopup {
+.weather-popup {
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 15px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 10px);
     z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
 
 /* weeklyoutlook.css */
 
 .weekly-outlook-wrapper {
-    margin: 20px;
+    margin: 20px auto;
+    max-width: 1000px;
 }
 
 .weekly-outlook-container {
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
 }
 
 .weekly-outlook-header {
     color: #333;
+    font-size: 24px;
     margin-bottom: 20px;
     border-bottom: 2px solid #ccc;
     padding-bottom: 10px;
@@ -188,64 +206,100 @@
 
 .weekly-outlook-content {
     font-size: 16px;
-    line-height: 1.5;
     color: #555;
+    margin-bottom: 20px;
 }
 
 .weekly-outlook-content label {
     margin-right: 10px;
+    font-weight: bold;
 }
 
 .weekly-outlook-content input {
-    margin-right: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px; /* Add margin to create space between input and button */
 }
 
 .weekly-outlook-content button {
     cursor: pointer;
-    padding: 5px 10px;
-    background-color: #BAC6DA;
-    color: black;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Add margin to create space between input and button */
 }
 
 .weekly-outlook-content button:hover {
-    background-color: #BAC6DA;
+    background-color: #45a049;
 }
 
 .weekly-outlook-item {
     margin-top: 20px;
     border-top: 1px solid #ccc;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .horizontal-scroll {
-    display: flex;
     overflow-x: auto;
     white-space: nowrap;
 }
 
 .weekly-outlook-item {
     margin-right: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 15px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
 .weekly-outlook-item:hover {
-    background-color: #f0f0f0;
+    background-color: #f5f5f5;
 }
 
 .weather-popup {
     background-color: #fff;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
+    border-radius: 8px;
+    padding: 15px;
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 100%;
+    left: 50%;
+    transform: translate(-50%, 10px);
     z-index: 1;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+.horizontal-scroll {
+    display: flex; /* Use flexbox */
+    overflow-x: auto; /* Enable horizontal scrolling */
+    white-space: nowrap; /* Prevent wrapping */
+}
+
+/* Adjust the width of the items to fit horizontally */
+.hourly-forecast-item,
+.daily-forecast-item,
+.weekly-outlook-item {
+    flex: 0 0 auto; /* Allow items to shrink and grow as needed */
+    width: 300px; /* Set a fixed width for each item */
+}
+.hourly-forecast-item,
+.daily-forecast-item,
+.weekly-outlook-item {
+    margin-top: 20px;
+    border: 1px solid #ccc; /* Add border */
+    border-radius: 8px;
+    padding: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* On hover, change background color */
+.hourly-forecast-item:hover,
+.daily-forecast-item:hover,
+.weekly-outlook-item:hover {
+    background-color: #f5f5f5;
+}
+

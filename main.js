@@ -3,6 +3,7 @@ export function callApi(method, url, data, callbacksuccess, callbackerror)
     var xhttp = new XMLHttpRequest();
     xhttp.open(method, url, true);
     xhttp.setRequestHeader('Content-Type', 'application/json');
+    xhttp.setRequestHeader('Authorization', 'klef ' + btoa('admin:123456'));
     xhttp.send(data);
 
     xhttp.onreadystatechange = function(){

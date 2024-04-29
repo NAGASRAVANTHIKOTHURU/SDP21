@@ -1,47 +1,138 @@
-/* currentconditions.css */
-
 .current-conditions-wrapper {
-    margin: 20px;
-  }
-  
-  .current-conditions-container {
+  margin: 20px auto;
+  max-width: 1000px;
+}
+
+.current-conditions-container {
     padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+.current-conditions-header {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.current-conditions-content {
+  font-size: 16px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.current-conditions-content label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.current-conditions-content input {
+  padding: 8px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .current-conditions-header {
-    color: #333;
-    margin-bottom: 20px;
-    border-bottom: 2px solid #ccc;
-    padding-bottom: 10px;
-  }
-  
-  .current-conditions-content {
-    font-size: 16px;
-    line-height: 1.5;
-    color: #555;
-  }
-  
-  .current-conditions-content label {
-    margin-right: 10px;
-  }
-  
-  .current-conditions-content input {
-    margin-right: 10px;
-  }
-  
-  .current-conditions-content button {
-    cursor: pointer;
-    padding: 5px 10px;
-    background-color: #BAC6DA;
-    color: black;
-    border: none;
-    border-radius: 3px;
-  }
-  
-  .current-conditions-content button:hover {
-    background-color:#BAC6DA;
-  }
-  
+    margin-right: 10px; 
+}
+
+.current-conditions-content button {
+  cursor: pointer;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-left: 10px; 
+}
+
+.current-conditions-content button:hover {
+  background-color: #45a049;
+}
+
+.suggestions-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 400px;
+  max-width: 80%;
+  z-index: 1000;
+}
+
+.suggestions-popup h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-top: 0; /* Add top margin to move the heading */
+  border-bottom: 2px solid #ccc; /* Add border for separation */
+  padding-bottom: 10px; /* Add padding for separation */
+}
+
+.suggestions-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.suggestions-popup li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.suggestions-popup p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.suggestions-popup button {
+  background-color:#45a049;
+  border: none;
+  color: white;
+  padding: 10px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.suggestions-popup button:hover {
+  background-color: darkgray;
+}
+
+.suggestions-popup h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.suggestions-popup li {
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.suggestions-popup p {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.suggestions-popup.sunny {
+  background-color: #ffe57f; /* Yellow for sunny weather */
+}
+
+.suggestions-popup.cloudy {
+  background-color: #cbeff8; /* Light blue */
+}
+
+.suggestions-popup.rainy {
+  background-color: #84a9e6; /* Blue for rainy weather */
+}

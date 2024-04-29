@@ -1,8 +1,8 @@
 import React from 'react'
 import './home.css'
-import logouticon from './Images/logout.jpg'
+import logouticon from './images/logout.png'
 import { callApi, errorResponse, getSession, setSession } from './main';
-import menuicon from './Images/menu.jpg'
+import menuicon from './images/menu.png'
 
 const HS1 = {"padding-left" : "5px", "font-weight" : "bold"};
 const HS2 = {"float" : "right", "padding-right" : "5px", "cursor" : "pointer"};
@@ -73,9 +73,17 @@ export function loadModule(smid)
              module.src = "/hourlyforecast";
              titlebar.innerText = "Hourly Forecast";
              break;
+        case "M00203":
+             module.src = "/weeklyoutlook";
+             titlebar.innerText = "Weekly Outlook";
+             break;
         case "M00202":
              module.src = "/dailyforecast";
              titlebar.innerText = "Daily Forecast";
+             break;
+        case "M00301":
+             module.src = "/addaplace";
+             titlebar.innerText = "Add a Place";
              break;
         case "M00401":
             module.src = "/myprofile";
@@ -94,20 +102,12 @@ export function loadModule(smid)
             titlebar.innerText = "Provide Feedback";
             break;
         case "M00503": 
-            module.src = "/Help"; 
+            module.src = "/help"; 
             titlebar.innerText = "Help and FAQ's"; 
             break;
         case "M00504":
             module.src = "/contactsupport";
             titlebar.innerText = "Contact Support";
-            break;
-        case "M00203":
-            module.src = "/weeklyoutlook";
-            titlebar.innerText = "Weekly Outlook";
-            break;
-        case "M00301":
-            module.src = "/addaplace";
-            titlebar.innerText = "Add a Place";
             break;
         default:
             module.src = "";

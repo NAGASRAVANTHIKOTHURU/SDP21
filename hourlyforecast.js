@@ -1,7 +1,7 @@
 // HourlyForecast.js
-
 import React, { Component } from 'react';
-import './weatherforecast.css'; // Don't forget to create and import the corresponding CSS file
+import './weatherforecast.css'; 
+import Chart from 'chart.js/auto';
 
 class HourlyForecast extends Component {
   constructor() {
@@ -11,6 +11,7 @@ class HourlyForecast extends Component {
       hourlyData: null,
       selectedHour: null,
     };
+    this.chartRef = React.createRef(); // Ref for the chart canvas
   }
 
   handleCityChange = (event) => {
@@ -27,6 +28,7 @@ class HourlyForecast extends Component {
       if (response.ok) {
         if (data.cod === '200' && data.list && data.list.length > 0) {
           this.setState({ hourlyData: data.list, selectedHour: null });
+          this.renderTemperatureChart(data.list); // Render temperature chart
         } else {
           console.error('Error fetching hourly forecast data:', data.message || response.statusText);
           this.setState({ error: 'No City Found!' });
@@ -50,7 +52,7 @@ class HourlyForecast extends Component {
   
     return (
       <div className="hourly-forecast-container">
-        <h1 className="hourly-forecast-header">Hourly Forecast</h1>
+        <h1 className="hourly-forecast-header">Hourly Forecast 🌞</h1>
         <div className="hourly-forecast-content">
           <label>Enter City: </label>
           <input type="text" value={this.state.city} onChange={this.handleCityChange} />
@@ -80,8 +82,7 @@ class HourlyForecast extends Component {
   
           {selectedHour !== null && (
             <div className="weatherpopup">
-              <p>Popup for selected hour:</p>
-              {/* Add details for the selected hour popup */}
+            
             </div>
           )}
         </div>
@@ -89,10 +90,61 @@ class HourlyForecast extends Component {
     );
   }  
 
+  renderTemperatureChart = (hourlyData) => { 
+    const ctx = this.chartRef.current.getContext('2d'); 
+    const hourLabels = hourlyData.map((hour) => new Date(hour.dt * 1000).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })); 
+    const temperatures = hourlyData.map((hour) => hour.main.temp); 
+
+    new Chart(ctx, { 
+      type: 'line', 
+      data: { 
+        labels: hourLabels, 
+        datasets: [{ 
+          label: 'Temperature (°C)', 
+          data: temperatures, 
+          fill: false, 
+          borderColor: 'rgb(0, 102, 128)', 
+          tension: 0.1 
+        }] 
+      }, 
+      options: { 
+        scales: { 
+          y: { 
+            title: { 
+              display: true, 
+              text: 'Temperature (°C)' 
+            },
+            grid: {
+              color: 'rgba(0, 0, 0, 0.4)' // Darker grid color for y-axis
+            },
+            font: {
+              weight: 'bold' // Bold font for y-axis label
+            },
+            
+            suggestedMin: Math.min(...temperatures) - 5 // Adjust min temperature to make chart more readable
+          },
+          x: {
+            title: { 
+              display: true, 
+              text: 'Hour of Day',
+              font: {
+                weight: 'bold' // Bold font for x-axis label
+              }
+            },
+            grid: {
+              color: 'rgba(0, 0, 0, 0.4)' // Darker grid color for y-axis
+            }
+          }
+        } 
+      } 
+    }); 
+  };
+  
   render() {
     return (
       <div className="hourly-forecast-wrapper">
         {this.renderHourlyForecast()}
+        <canvas ref={this.chartRef} />
       </div>
     );
   }

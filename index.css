@@ -25,7 +25,7 @@ html, body{
   font-size: 15pt;
 }
 .logincontent{
-  background: url('Images/weatherbg.jpg');
+  background: url('images/weatherbg.jpg');
   height: calc(100% - 60px);
   background-size: 100% 100%;
 }

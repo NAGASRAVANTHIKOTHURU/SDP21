@@ -17,6 +17,7 @@ import WeeklyOutlook from './components/weeklyoutlook';
 import AddAPlace from './components/addaplace';
 
 
+
 function Website(){
   return(
     <BrowserRouter>
@@ -27,13 +28,13 @@ function Website(){
         <Route path='/currentconditions' element={<CurrentConditions/>} />
         <Route path='/hourlyforecast' element={<HourlyForecast/>} />
         <Route path='/dailyforecast' element={<DailyForecast/>} />
+        <Route path='/weeklyoutlook' element={<WeeklyOutlook/>} />
         <Route path='/providefeedback' element={<ProvideFeedback/>} />
         <Route path='/contactsupport' element={<ContactSupport/>} />
         <Route path='/myprofile' element={<MyProfile/>} />
         <Route path='/reportanissue' element={<ReportAnIssue/>} />
         <Route path='/help' element={<Help/>} />
-        <Route path='/weeklyoutlook' element={<WeeklyOutlook/>} />
-        <Route path='/addaplace' element={<AddAPlace/>} />       
+        <Route path='/addaplace' element={<AddAPlace/>} />
       </Routes>
     </BrowserRouter>
   );

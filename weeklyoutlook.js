@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './weatherforecast.css';
+import Chart from 'chart.js/auto';
 
 class WeeklyOutlook extends Component {
   constructor() {
@@ -10,6 +11,7 @@ class WeeklyOutlook extends Component {
       selectedWeek: null,
       error: null,
     };
+    this.chartRef = React.createRef(); 
   }
 
   handleCityChange = (event) => {
@@ -27,6 +29,7 @@ class WeeklyOutlook extends Component {
         if (data.cod === '200' && data.list && data.list.length > 0) {
           const weeklyData = this.groupDataByWeek(data.list);
           this.setState({ weeklyData, selectedWeek: null, error: null });
+          this.renderTemperatureChart(weeklyData);
         } else {
           console.error('Error fetching weekly outlook data:', data.message || response.statusText);
           this.setState({ error: 'No City Found!' });
@@ -59,10 +62,56 @@ class WeeklyOutlook extends Component {
   
     return weeklyData;
   };
-  
-  
-  
-
+  renderTemperatureChart = (weeklyData) => { 
+    const ctx = this.chartRef.current.getContext('2d'); 
+    const weekLabels = weeklyData.map((week, index) => `Week ${index + 1}`); 
+    const temperatures = weeklyData.map((week) => { 
+      const sumTemperature = week.reduce((sum, day) => sum + day.main.temp, 0); 
+      return (sumTemperature / week.length).toFixed(2); 
+    }); 
+ 
+    new Chart(ctx, { 
+      type: 'line', 
+      data: { 
+        labels: weekLabels, 
+        datasets: [{ 
+          label: 'Average Temperature (°C)', 
+          data: temperatures, 
+          fill: false, 
+          borderColor: 'rgb(0, 102, 128)', // Darker color
+          tension: 0.1 
+        }] 
+      }, 
+      options: { 
+        scales: { 
+          y: { 
+            title: { 
+              display: true, 
+              text: 'Temperature (°C)',
+              font: {
+                weight: 'bold' // Bold font for y-axis label
+              }
+            },
+            grid: {
+              color: 'rgba(0, 0, 0, 0.4)' // Darker grid color for y-axis
+            }
+          },
+          x: {
+            title: {
+              display: true,
+              text: 'Week',
+              font: {
+                weight: 'bold' // Bold font for x-axis label
+              }
+            },
+            grid: {
+              color: 'rgba(0, 0, 0, 0.4)' // Darker grid color for x-axis
+            }
+          }
+        } 
+      } 
+    });
+  }    
 
   handleWeekClick = (index) => {
     this.setState({ selectedWeek: index });
@@ -73,7 +122,7 @@ class WeeklyOutlook extends Component {
 
     return (
       <div className="weekly-outlook-container">
-        <h1 className="weekly-outlook-header">Weekly Outlook</h1>
+        <h1 className="weekly-outlook-header">Weekly Outlook 🌞</h1>
         <div className="weekly-outlook-content">
           <label>Enter City: </label>
           <input type="text" value={this.state.city} onChange={this.handleCityChange} />
@@ -143,6 +192,7 @@ class WeeklyOutlook extends Component {
     return (
       <div className="weekly-outlook-wrapper">
         {this.renderWeeklyOutlook()}
+        <canvas ref={this.chartRef} />
       </div>
     );
   }

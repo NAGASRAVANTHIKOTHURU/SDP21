@@ -1,0 +1,55 @@
+/* addaplace.css */
+
+.add-a-place-wrapper {
+  margin: 20px;
+}
+
+.saved-locations-container {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.saved-locations-header {
+  color: #333;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.saved-locations-content {
+  font-size: 16px;
+  line-height: 1.5;
+  color: #555;
+}
+
+.saved-locations-content label {
+  margin-right: 10px;
+}
+
+.saved-locations-content input {
+  margin-right: 10px;
+}
+
+.saved-locations-content button {
+  cursor: pointer;
+  padding: 5px 10px;
+  background-color: #BAC6DA;
+  color: black;
+  border: none;
+  border-radius: 3px;
+}
+
+.saved-locations-content button:hover {
+  background-color: #BAC6DA;
+}
+
+.saved-locations-content ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.saved-locations-content li {
+  margin-bottom: 5px;
+}

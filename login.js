@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logo from './Images/weatherlogo.jpg';
+import logo from './images/weatherlogo.png';
 import { callApi, errorResponse, setSession } from './main';
 
 const popupwindowstyle = { width: '300px', height: '450px', background: 'white' };
@@ -20,13 +20,6 @@ function Login() {
   function validate() {
     var T1 = document.getElementById('T1');
     var T2 = document.getElementById('T2');
-    var checkbox = document.getElementById('notARobotCheckbox');
-
-    if (!checkbox.checked) {
-      alert('Please confirm that you are not a robot.');
-      return;
-    }
-
     var url = 'http://localhost:5000/login/signin';
     var data = JSON.stringify({
       emailid: T1.value,
@@ -271,13 +264,6 @@ function Login() {
                   className="txtbox"
                   onChange={() => setPasswordError('')}
                 />
-              </div>
-              <div>
-                {/* "I am not a robot" checkbox */}
-                <label>
-                  <input type="checkbox" id="notARobotCheckbox" required />
-                  I am not a robot
-                </label>
               </div>
               <div style={space}></div>
               <div style={space}></div>

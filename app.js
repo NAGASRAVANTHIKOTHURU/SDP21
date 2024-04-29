@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 const {MongoClient} = require('mongodb');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.use(express.json());
@@ -10,6 +11,21 @@ const PORT = process.env.PORT || 5000;
 
 
 app.listen(PORT, console.log(`Server running on the port number ${PORT}`));
+function authentication(req, res, next)
+{
+    var authHeader = req.headers.authorization;
+    if(!authHeader)
+        return res.json("Unauthorized access").status(401);
+    var auth = new Buffer.from(authHeader.split(' ')[1],'base64').toString().split(':');
+    var username = auth[0];
+    var password = auth[1];
+    if(username==='admin' && password==='123456')
+        next();
+    else
+        return res.json("Unauthorized access").status(401);
+}
+
+app.use(authentication);
 
 //Configuration (MONGODB)
 var curl = "mongodb://localhost:27017";
@@ -176,4 +192,31 @@ app.post('/myprofile/info', async (req, res) => {
     }
 });
 
+app.post('/sendemail', async function(req, res){
+    try {
+        var transport = nodemailer.createTransport({
+            service: "gmail",
+            auth:{user: "kadiyamdeepika143@gmail.com", pass: "embydhjvfiysnlpn"}
+        });
 
+        var emaildata = {
+            from: "kadiyamdeepika143@gmail.com",
+            to: "deepikakadiyam2004@gmail.com",
+            subject: "Testing Email",
+            text: "This is a testing email message..."
+        };
+        
+        transport.sendMail(emaildata, function(err, info){
+            if(err) {
+                console.error(err); // Log the error for debugging
+                return res.status(500).json("Failed to send Email"); // Send a proper error response
+            }
+            console.log(info);
+            res.json("Email sent successfully");
+        });
+    } catch(err) {
+        console.error(err);
+        res.status(500).json("Internal Server Error");
+    }
+});
+ 

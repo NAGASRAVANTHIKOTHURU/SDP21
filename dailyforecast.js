@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './weatherforecast.css';
+import Chart from 'chart.js/auto';
+
 
 class DailyForecast extends Component {
   constructor() {
@@ -10,6 +12,7 @@ class DailyForecast extends Component {
       selectedDay: null,
       error: null, // Added error state for better error handling
     };
+    this.chartRef = React.createRef(); // Reference to the chart canvas
   }
 
   handleCityChange = (event) => {
@@ -26,6 +29,7 @@ class DailyForecast extends Component {
       if (response.ok) {
         if (data.cod === '200' && data.list && data.list.length > 0) {
           this.setState({ dailyData: data.list, selectedDay: null, error: null });
+          this.renderTemperatureChart(data.list); // Render the temperature chart
         } else {
           console.error('Error fetching daily forecast data:', data.message || response.statusText);
           this.setState({ error: 'No City Found!' });
@@ -51,7 +55,7 @@ class DailyForecast extends Component {
   
     return (
       <div className="daily-forecast-container">
-        <h1 className="daily-forecast-header">Daily Forecast</h1>
+        <h1 className="daily-forecast-header">Daily Forecast 🌞</h1>
         <div className="daily-forecast-content">
           <label>Enter City: </label>
           <input type="text" value={this.state.city} onChange={this.handleCityChange} />
@@ -81,7 +85,6 @@ class DailyForecast extends Component {
                       {dayData && dayData.length > 0 ? (
                         <>
                           <p>Date: {new Date(dayData[0].dt * 1000).toLocaleDateString('en-GB')}</p>
-
                           <p>Average Temperature: {avgTemp}°C</p>
                           <p>Humidity: {this.calculateAverageHumidity(dayData)}%</p>
                           <p>Description: {dayData[0].weather[0].description}</p>
@@ -110,7 +113,61 @@ class DailyForecast extends Component {
       </div>
     );
   }
-  
+  renderTemperatureChart = (dailyData) => { 
+    const ctx = this.chartRef.current.getContext('2d'); 
+    const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']; 
+    const temperatures = daysOfWeek.map((day) => { 
+      const dayData = dailyData.filter( 
+        (item) => new Date(item.dt * 1000).toLocaleDateString('en-US', { weekday: 'long' }) === day 
+      ); 
+      const avgTemp = this.calculateAverageTemperature(dayData); 
+      return avgTemp !== '-' ? avgTemp : 0; // Replace missing data with 0 
+    }); 
+ 
+    new Chart(ctx, { 
+      type: 'line', 
+      data: { 
+        labels: daysOfWeek, 
+        datasets: [{ 
+          label: 'Temperature', 
+          data: temperatures, 
+          fill: false, 
+          borderColor: 'rgb(0, 102, 128)', 
+          tension: 0.1 
+        }] 
+      }, 
+      options: { 
+        scales: { 
+          y: { 
+            title: { 
+              display: true, 
+              text: 'Temperature (°C)',
+              font: {
+                weight: 'bold' // Bold font for y-axis label
+              }
+            }, 
+            suggestedMin: 0,
+            grid: {
+              color: 'rgba(0, 0, 0, 0.4)' // Darker grid color for y-axis
+            }
+          },
+          x: {
+            title: { 
+              display: true, 
+              text: 'Day of Week',
+              font: {
+                weight: 'bold' // Bold font for x-axis label
+              }
+            }, 
+            grid: {
+              color: 'rgba(0, 0, 0, 0.4)' // Darker grid color for x-axis
+            }
+          }
+        } 
+      } 
+    }); 
+  }
+    
 
   calculateAverageTemperature = (dayData) => {
     // Calculate the average temperature for the day
@@ -132,6 +189,7 @@ class DailyForecast extends Component {
     return (
       <div className="daily-forecast-wrapper">
         {this.renderDailyForecast()}
+        <canvas ref={this.chartRef} />
       </div>
     );
   }
